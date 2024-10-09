@@ -1,42 +1,50 @@
 # Trabalho A2
-Este repositório contém o projeto para composição de nota A2 da matéria de Desenvolvimento de Software Visual
+
+Este repositório contém o projeto para a composição da nota A2 da matéria de **Desenvolvimento de Software Visual**.
 
 ## Descrição
 
-Implementados os modulos de:
-  - Produtos:
-    -id: número inteiro, auto-incremento.
-    - nome: string.
-    - descrição: string.
-    - preço: número decimal.
-    - estoque: número inteiro.
+Foram implementados os seguintes módulos:
 
-    com as funções de:
-      - criação de um novo produto (POST /products/newProduct).
-      - listar todos os produtos (GET /getAllProducts).
-      - atualizar um produto existente (PUT updateProduct).
-      - deletar um produto (DELETE /deleteProduct).
-        
-  - Carrinhos de compras:
-    - id: número inteiro, auto-incremento.
-    - userId: referência ao usuário dono da cesta.
-    - valorTotal: valor total dos produtos da cesta
-    - itens: lista de produtos.
-    
-    com as funções de:
-      - adicionar um produto à cesta (POST /cart/addItem).
-      - remover um produto da cesta (DELETE /cart/deleteItem).
-      - visualizar os itens na cesta (GET /cart/showCart).
-    
-  -Pagamento:
-    -id: número inteiro, auto-incremento.
-    - userId: referência ao usuário.
-    - valorTotal: número decimal.
-    - métodoPagamento: string (cartão de crédito ou PIX).
-    - status: string (pendente, concluído, falhado).
-        
-    com as funções de:
-      - realizar pagamento via cartão de crédito (POST /payments/paycreditcard).
-      - realizar pagamento via PIX (POST /payments/payPix).
-      - consultar transação (GET /payments/allpayments).
+### 1. Produtos
+
+- **Atributos:**
+  - `id`: Número inteiro, auto-incremento.
+  - `nome`: String.
+  - `descrição`: String.
+  - `preço`: Número decimal.
+  - `estoque`: Número inteiro.
+
+- **Funcionalidades:**
+  - Criar um novo produto: `POST /products/newProduct`.
+  - Listar todos os produtos: `GET /getAllProducts`.
+  - Atualizar um produto existente: `PUT /updateProduct`.
+  - Deletar um produto: `DELETE /deleteProduct`.
+
+### 2. Carrinho de Compras
+
+- **Atributos:**
+  - `id`: Número inteiro, auto-incremento.
+  - `userId`: Referência ao usuário dono do carrinho.
+  - `valorTotal`: Valor total dos produtos no carrinho.
+  - `itens`: Lista de produtos.
+
+- **Funcionalidades:**
+  - Adicionar um produto ao carrinho: `POST /cart/addItem`.
+  - Remover um produto do carrinho: `DELETE /cart/deleteItem`.
+  - Visualizar os itens no carrinho: `GET /cart/showCart`.
+
+### 3. Pagamento
+
+- **Atributos:**
+  - `id`: Número inteiro, auto-incremento.
+  - `userId`: Referência ao usuário.
+  - `valorTotal`: Número decimal.
+  - `métodoPagamento`: String (Cartão de crédito ou PIX).
+  - `status`: String (Pendente, Concluído, Falhado).
+
+- **Funcionalidades:**
+  - Realizar pagamento via cartão de crédito: `POST /payments/payCreditCard`.
+  - Realizar pagamento via PIX: `POST /payments/payPix`.
+  - Consultar transações: `GET /payments/allPayments`.
 
