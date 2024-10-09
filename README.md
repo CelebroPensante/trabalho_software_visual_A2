@@ -18,25 +18,25 @@ Implementados os modulos de:
       - deletar um produto (DELETE /deleteProduct).
         
   - Carrinhos de compras:
-      - id: número inteiro, auto-incremento.
-      - userId: referência ao usuário dono da cesta.
-      - valorTotal: valor total dos produtos da cesta
-      - itens: lista de produtos.
+    - id: número inteiro, auto-incremento.
+    - userId: referência ao usuário dono da cesta.
+    - valorTotal: valor total dos produtos da cesta
+    - itens: lista de produtos.
     
-      com as funções de:
-        - adicionar um produto à cesta (POST /cart/addItem).
-        - remover um produto da cesta (DELETE /cart/deleteItem).
-        - visualizar os itens na cesta (GET /cart/showCart).
+    com as funções de:
+      - adicionar um produto à cesta (POST /cart/addItem).
+      - remover um produto da cesta (DELETE /cart/deleteItem).
+      - visualizar os itens na cesta (GET /cart/showCart).
     
-    -Pagamento:
-      -id: número inteiro, auto-incremento.
-      - userId: referência ao usuário.
-      - valorTotal: número decimal.
-      - métodoPagamento: string (cartão de crédito ou PIX).
-      - status: string (pendente, concluído, falhado).
+  -Pagamento:
+    -id: número inteiro, auto-incremento.
+    - userId: referência ao usuário.
+    - valorTotal: número decimal.
+    - métodoPagamento: string (cartão de crédito ou PIX).
+    - status: string (pendente, concluído, falhado).
         
-      com as funções de:
-        - realizar pagamento via cartão de crédito (POST /payments/paycreditcard).
-        - realizar pagamento via PIX (POST /payments/payPix).
-        - consultar transação (GET /payments/allpayments).
+    com as funções de:
+      - realizar pagamento via cartão de crédito (POST /payments/paycreditcard).
+      - realizar pagamento via PIX (POST /payments/payPix).
+      - consultar transação (GET /payments/allpayments).
 
