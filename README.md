@@ -48,3 +48,5 @@ Foram implementados os seguintes módulos:
   - Realizar pagamento via PIX: `POST /payments/payPix`.
   - Consultar transações: `GET /payments/allPayments`.
 
+#Postman
+`https://www.postman.com/celebropensante/dsv/collection/dugqu79/projeto-1b`
