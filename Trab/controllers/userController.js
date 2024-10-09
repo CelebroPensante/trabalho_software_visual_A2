@@ -5,7 +5,6 @@ class UserController{
         this.userService = UserService;
     }
     async createUser(req,res){
-        // Processar a request
         const {email, data_nasc, password} = req.body;
         try{
             const newUser = await this.userService.create(email,data_nasc,password);
@@ -17,7 +16,7 @@ class UserController{
         }
     }
 
-
+    // Método para retornar todos os usuários
     async findAllUsers(req,res){
         try{
             const AllUsers = await this.userService.findAll();
@@ -27,6 +26,8 @@ class UserController{
             res.status(500).json({error: 'Ocorreu um erro ao localizar todos os usuários.'})
         }
     }
+
+    // Método para retornar um usuário pelo id
     async findUserById(req,res){
         const {id} = req.query;
         try{

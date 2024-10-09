@@ -1,4 +1,4 @@
-// auth.js jsonpn
+// auth.js
 const jwt = require('jsonwebtoken');
 const secret = '123'; //Ponto de vulnerabilidade pq a chave secreta não acessível
 // Recomenda-se gravar em variáveis de ambiente deo sistema operacional

@@ -5,6 +5,7 @@ class CartController {
         this.CartService = CartService;
     }
 
+    // Adicionar um método para adicionar um item ao carrinho
     async addItem(req, res) {
         const { userid, item } = req.body;
         try {
@@ -16,6 +17,7 @@ class CartController {
         }
     }
 
+    // Adicionar um método para mostrar o carrinho de um usuário
     async showCart(req, res) {
         const { userid } = req.query;
         if (!userid) {

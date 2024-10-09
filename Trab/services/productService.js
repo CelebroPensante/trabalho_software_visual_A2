@@ -5,6 +5,7 @@ class ProductService {
         this.Product = ProductModel;
     }
 
+    // Método para criar um novo produto
     async create(nome, descricao, preco, estoque) {
         try {
             const newProduct = await this.Product.create({

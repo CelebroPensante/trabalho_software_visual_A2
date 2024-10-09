@@ -1,14 +1,14 @@
 // models/cart.js
 const Sequelize = require('sequelize');
-module.exports = (sequelize) =>{
-    const Cart = sequelize.define('Cart',{
-        id:{
+module.exports = (sequelize) => {
+    const Cart = sequelize.define('Cart', {
+        id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
-        userid:{
+        userid: {
             type: Sequelize.STRING,
             unique: false,
             allowNull: false
@@ -17,8 +17,12 @@ module.exports = (sequelize) =>{
             type: Sequelize.JSON,
             allowNull: false,
             defaultValue: []
+        },
+        totalPrice: {
+            type: Sequelize.FLOAT,
+            allowNull: false,
+            defaultValue: 0.0
         }
     });
     return Cart;
-    
 };

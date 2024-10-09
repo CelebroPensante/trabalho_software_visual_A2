@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index'); // Para a rota principal do app
 var usersRouter = require('./routes/users'); // Para a rota users ./routes/users.js
 var productsRouter = require('./routes/products'); // Para a rota products ./routes/products.js
 var cartRouter = require('./routes/carts'); // Para a rota cart ./routes/cart.js
+var paymentRouter = require('./routes/payments'); // Para a rota payments ./routes/payments.js
 
 var app = express(); // Ativa a API com o express
 
@@ -23,7 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter); // Cria a rota app/
 app.use('/users', usersRouter); // Cria a rota app/users
 app.use('/products', productsRouter); // Cria a rota app/products
-app.use('/cart', cartRouter); // Cria a rota app/cart
+app.use('/cart', cartRouter); // Cria a rota app/cart 
+app.use('/payments', paymentRouter); // Cria a rota app/payments
 
 // Sincronizando o Sequelize (em dev)
 if (process.env.NODE_ENV !== 'production') {
@@ -36,9 +38,10 @@ if (process.env.NODE_ENV !== 'production') {
         });
 }
 
-// Inicar o servidos com o app.js na porta 8080
+// Iniciar o servidor com o app.js na porta 8080
 var port = 8080;
-app.listen(port,()=>{
-    console.log(`Aplicação rodando na porta ${port}`)
+app.listen(port, () => {
+    console.log(`Aplicação rodando na porta ${port}`);
 });
+
 module.exports = app;

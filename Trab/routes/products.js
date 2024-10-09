@@ -1,13 +1,16 @@
+// ./routes/products.js
 var express = require('express');
 var router = express.Router();
-const auth = require('../auth'); 
+const auth = require('../auth'); // Carregar os objetos do auth.js
 
+// Implementar as dependencias para o funcionamento da classe User
+const db = require('../models') // Carregando o bando de dados
 
-const db = require('../models')
-
+// Carregando as clases service e controller da user
 const ProductService = require('../services/productService');
 const ProductController = require('../controllers/productController');
 
+// Contruir os objetos a partir das classes
 const productService = new ProductService(db.Product);
 const productController = new ProductController(productService);
 

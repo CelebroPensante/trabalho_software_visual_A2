@@ -6,9 +6,9 @@ class CartService {
         this.Product = ProductModel;
     }
 
+    // Método para adicionar um item ao carrinho
     async addItem(userid, item) {
         try {
-            // Verificar se o produto existe
             const product = await this.Product.findOne({
                 where: {
                     nome: item 
@@ -28,13 +28,16 @@ class CartService {
             if (!cart) {
                 cart = await this.Cart.create({
                     userid: userid,
-                    itens: [item]
+                    itens: [item],
+                    totalPrice: product.preco 
                 });
             } else {
-
-                // Adiciona o novo item a lista de itens existente
                 const updatedItens = [...cart.itens, item];
                 cart.itens = updatedItens;
+
+                const totalPrice = cart.totalPrice + product.preco;
+                cart.totalPrice = totalPrice;
+
                 await cart.save();
             }
 
@@ -46,6 +49,7 @@ class CartService {
         }
     }
 
+    // Método para mostrar o carrinho de um usuário
     async showCart(userid) {
         try {
             const cart = await this.Cart.findOne({
@@ -55,10 +59,10 @@ class CartService {
             });
 
             if (!cart) {
-                return [];
+                throw new Error('Carrinho não encontrado');
             }
 
-            return cart.itens;
+            return cart;
         } catch (error) {
             console.error('Erro ao mostrar itens do carrinho:', error.message);
             console.error('Detalhes do erro:', error);
@@ -90,7 +94,6 @@ class CartService {
             throw new Error('Erro ao deletar item do carrinho');
         }
     }
-
 }
 
 module.exports = CartService;
