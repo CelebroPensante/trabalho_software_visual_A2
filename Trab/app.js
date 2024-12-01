@@ -1,7 +1,8 @@
-var express = require('express'); // Para as rotas
+var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors'); // Adicione esta linha
 
 // Importando o Sequelize e o modelo User
 var sequelize = require('./models').sequelize;
@@ -20,6 +21,7 @@ app.use(express.json()); // Permite o uso de json(java script object notation)
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors()); // Adicione esta linha
 
 app.use('/', indexRouter); // Cria a rota app/
 app.use('/users', usersRouter); // Cria a rota app/users
